@@ -1,25 +1,25 @@
 # DaBoiz Habit Tracker Backend
-# Project description
+## Project description
 
-# Installation & usage
-## Installation
+## Installation & usage
+### Installation
 
-## Usage
+### Usage
 
-# Technologies
+## Technologies
 
-# Process
-## Changelog
+## Process
+### Changelog
 
-## Screenshots/Images
+### Screenshots/Images
 
-# Licence 
+## Licence 
 
-# Bugs
+## Bugs
 
-# Wins & Challenges
-## Wins
+## Wins & Challenges
+### Wins
 
-## Challenges
+### Challenges
 
-# Future features
+## Future features
