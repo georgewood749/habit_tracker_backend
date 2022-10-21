@@ -7,6 +7,9 @@
 ### Usage
 
 ## Technologies
+- JavaScript
+- Express
+- MongoDB
 
 ## Process
 ### Changelog
