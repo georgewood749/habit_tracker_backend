@@ -13,7 +13,7 @@ async function getAll (req, res) {
 //shows details about one user
 async function show (req, res) {
     try {
-        console.log(req.params.username)
+        console.log("username", req.params.username)
         
         const user = await Habit.find({ username: req.params.username }) 
         console.log(user);
