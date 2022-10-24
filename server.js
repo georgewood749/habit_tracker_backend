@@ -1,11 +1,28 @@
 const express = require('express')
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+
 const server = express()
+server.use(express.json());
 
 let cors = require("cors")
 server.use(cors())
 
-const bodyParser = require('body-parser')
-server.use(bodyParser.json())
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.qdvvhyb.mongodb.net/?retryWrites=true&w=majority`)
+
+const db = mongoose.connection
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", () => console.log("Connected successfully to database"));
+
+
+server.get('/', (req, res) => {
+    res.send('Welcome to the DaBoiz Habit Tracker!')
+})
+
+
+// const bodyParser = require('body-parser')
+// server.use(bodyParser.json())
 
 // server.use(function (req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*');
@@ -13,11 +30,5 @@ server.use(bodyParser.json())
 //     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
 //     next();
 // });
-
-
-server.get('/', (req, res) => {
-    res.send('Welcome to the DaBoiz Habit Tracker!')
-})
-
 
 module.exports = server;
