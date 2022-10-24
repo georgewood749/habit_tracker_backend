@@ -1,10 +1,14 @@
 # DaBoiz Habit Tracker Backend
 ## Project description
+The goal for this project was to create a habit tracking application where users are able to create an account that allows them to keep track of desired habits. Users are able to create an account that they can log back into to track and view their progress on their chosen habits.
 
 ## Installation & usage
 ### Installation
+- The database is hosted on Heroku using MongoDB Atlas
 
 ### Usage
+- After accessing the hosted frontend for this applicaiton, users can register an account to track their habits.
+- Users are then able to log in to their account and track their chosen habits.
 
 ## Technologies
 - JavaScript
