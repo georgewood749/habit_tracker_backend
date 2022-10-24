@@ -7,6 +7,10 @@ router.post('/', verifyToken, habitsController.create);
 router.get('/', habitsController.getAll);
 router.get('/:username',verifyToken, habitsController.show);
 
+router.get('/:username/habits', habitsController.getHabits)
+router.get('/:username/habits/:id', habitsController.getHabit)
+router.patch('/:username/habits/:id', habitsController.editHabit)
+router.delete('/:username/habits/:id', habitsController.deleteHabit)
 
 function verifyToken(req, res, next) {
     const token = req.headers['authorization'];
