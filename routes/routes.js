@@ -7,11 +7,9 @@ const habitsController = require('../controllers/habits')
 //     res.send('Create new account')
 // })
 
-router.get('/', habitsController.index);
+router.get('/', habitsController.getAll);
 
-// router.get('/:id', (req, res) => {
-//     res.send('Get one habit by ID')
-// })
+router.get('/:id', habitsController.show);
 
 // router.patch('/:id', (req, res) => {
 //     res.send('Update habit by ID')
