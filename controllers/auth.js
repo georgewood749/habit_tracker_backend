@@ -30,7 +30,7 @@ async function login (req, res) {
                         token: token
                     })
                 }
-                const token = jwt.sign(payload, process.env.SECRET, {expiresIn:60}, sendToken);
+                const token = jwt.sign(payload, process.env.SECRET, {expiresIn:600}, sendToken);
                 console.log(token);
             } else {
                 throw new Error('User could not be authenticated')  
@@ -41,11 +41,5 @@ async function login (req, res) {
 }
 
 
+module.exports = { register, login}
 
-
-
-
-
-
-
-module.exports = { register, login }

@@ -13,8 +13,12 @@ async function getAll (req, res) {
 //shows details about one user
 async function show (req, res) {
     try {
-        const habits = await Habit.find({_id : req.params.id});
-        res.status(200).json(habits)
+        console.log(req.params.username)
+        
+        const user = await Habit.find({ username: req.params.username }) 
+        console.log(user);
+        //const habits = await Habit.find({_id : req.params.id});
+        res.status(200).json(user)
     } catch (err) {
         res.status(404).json({err})
     }
@@ -37,5 +41,6 @@ async function destroy (req, res) {
             
         }
 }
+
 
 module.exports = { getAll, show, create, destroy }
