@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Habit = mongoose.model('Habit', habitSchema)
+
 
 const habitSchema = new mongoose.Schema(
     {
@@ -19,5 +19,7 @@ const habitSchema = new mongoose.Schema(
     }]
     }
 );
+
+const Habit = mongoose.model('Habit', habitSchema)
 
 module.exports = Habit;
