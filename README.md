@@ -24,5 +24,6 @@
 ### Wins
 
 ### Challenges
+- Hosting with MongoDB
 
 ## Future features
