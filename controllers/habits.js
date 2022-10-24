@@ -42,5 +42,47 @@ async function destroy (req, res) {
         }
 }
 
+async function getHabits(req, res){
+    try {
+        const user = await Habit.find({ username: req.params.username })
+        res.status(200).json(user.habits)
+    } catch (err) {
+        console.error(err)
+    }
+}
 
-module.exports = { getAll, show, create, destroy }
+async function getHabit(req, res){
+    try {
+
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+// Adding, removing and updating habits for a specific user
+async function editHabit (req, res) {
+    try {
+        
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+async function deleteHabit(req, res){
+    try {
+
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+module.exports = {
+    getAll,
+    show,
+    create,
+    destroy,
+    getHabits,
+    getHabit,
+    editHabit,
+    deleteHabit
+}
