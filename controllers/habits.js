@@ -1,6 +1,7 @@
 const Habit = require('../model/model');
 
-async function index (req, res) {
+//shows all users
+async function getAll (req, res) {
     try {
         const habits = await Habit.find({});
         res.status(200).json(habits)
@@ -9,4 +10,18 @@ async function index (req, res) {
     }
 }
 
-module.exports = { index }
+//shows details about one user
+async function show (req, res) {
+    try {
+        const habits = await Habit.find({_id : req.params.id});
+        res.status(200).json(habits)
+    } catch (err) {
+        res.status(404).json({err})
+    }
+}
+
+
+
+
+
+module.exports = { getAll, show }
