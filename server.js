@@ -10,11 +10,16 @@ let cors = require("cors")
 server.use(cors())
 
 // mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.qdvvhyb.mongodb.net/?retryWrites=true&w=majority`)
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.a7xqgeo.mongodb.net/?retryWrites=true&w=majority`);
+// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.a7xqgeo.mongodb.net/?retryWrites=true&w=majority`);
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.a7xqgeo.mongodb.net/?retryWrites=true&w=majority`)
 
 const db = mongoose.connection
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", () => console.log("Connected successfully to database"));
+
+const routes = require('./routes/routes');
+server.use('/habits', routes);
+
 
 
 server.get('/', (req, res) => {
