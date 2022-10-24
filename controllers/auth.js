@@ -5,7 +5,11 @@ const jwt = require('jsonwebtoken')
 
 async function register (req, res) {
     try {
+        
         console.log(req.body);
+        console.log("****************");
+        console.log(req.body.password)
+        console.log("****************");
         const salt = await bcrypt.genSalt();
         const hashed = await bcrypt.hash(req.body.password, salt);
         console.log(hashed);
