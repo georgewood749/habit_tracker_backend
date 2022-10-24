@@ -9,8 +9,9 @@ router.get('/:username',verifyToken, habitsController.show);
 
 
 function verifyToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = req.headers['authorization'];
+    // console.log("authHeader", authHeader)
+    // const token = authHeader && authHeader.split(' ')[1];
     console.log(token, "token");
     if (token) {
         jwt.verify(token, process.env.SECRET, async (err, data) => {
