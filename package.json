@@ -4,7 +4,8 @@
   "description": "## Installation & usage ### Installation",
   "main": "index.js",
   "engines": {
-    "node": "18.x"
+    "node": "18.x",
+    "npm": "7.x"
   },
   "directories": {
     "test": "test"
