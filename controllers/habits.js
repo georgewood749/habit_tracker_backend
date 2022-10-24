@@ -20,8 +20,22 @@ async function show (req, res) {
     }
 }
 
+//create new account
+async function create (req, res) {
+    try {
+        const habit = await Habit.create(req.body).save();
+        res.status(201).json(habit)
+    } catch (err) {
+        res.status(422).json({err})
+    }
+}
 
+async function destroy (req, res) {
+        try {
+            
+        } catch (err) {
+            
+        }
+}
 
-
-
-module.exports = { getAll, show }
+module.exports = { getAll, show, create, destroy }
