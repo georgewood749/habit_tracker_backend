@@ -19,8 +19,6 @@ db.once("open", () => console.log("Connected successfully to database"));
 const routes = require('./routes/routes');
 server.use('/habits', routes);
 
-
-
 server.get('/', (req, res) => {
     res.send('Welcome to the DaBoiz Habit Tracker!')
 })
