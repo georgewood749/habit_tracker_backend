@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 router.post('/', verifyToken, habitsController.create);
 router.get('/', habitsController.getAll);
-router.get('/:username',verifyToken, habitsController.show);
+router.get('/:id',verifyToken, habitsController.show);
 
 
 function verifyToken(req, res, next) {
