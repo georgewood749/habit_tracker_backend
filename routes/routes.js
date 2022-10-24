@@ -3,15 +3,9 @@ const router = express.Router();
 const habitsController = require('../controllers/habits')
 
 
-// router.post('/', (req, res) => {
-//     res.send('Create new account')
-// })
-
-router.get('/', habitsController.index);
-
-// router.get('/:id', (req, res) => {
-//     res.send('Get one habit by ID')
-// })
+router.post('/', habitsController.create);
+router.get('/', habitsController.getAll);
+router.get('/:id', habitsController.show);
 
 // router.patch('/:id', (req, res) => {
 //     res.send('Update habit by ID')
