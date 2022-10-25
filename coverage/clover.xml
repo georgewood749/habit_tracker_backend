@@ -1,32 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666688634258" clover="3.2.0">
-  <project timestamp="1666688634258" name="All files">
-    <metrics statements="30" coveredstatements="24" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="3" elements="39" coveredelements="29" complexity="0" loc="30" ncloc="30" packages="2" files="2" classes="2"/>
+<coverage generated="1666697548328" clover="3.2.0">
+  <project timestamp="1666697548328" name="All files">
+    <metrics statements="79" coveredstatements="33" conditionals="10" coveredconditionals="2" methods="15" coveredmethods="4" elements="104" coveredelements="39" complexity="0" loc="79" ncloc="79" packages="4" files="4" classes="4"/>
+    <package name="controllers">
+      <metrics statements="38" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
+      <file name="habits.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/controllers/habits.js">
+        <metrics statements="38" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="model">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="model.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/model/model.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
       </file>
     </package>
     <package name="test">
-      <metrics statements="26" coveredstatements="20" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="3"/>
-      <file name="setuptestdb.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/test/setuptestdb.js">
-        <metrics statements="26" coveredstatements="20" conditionals="4" coveredconditionals="2" methods="5" coveredmethods="3"/>
+      <metrics statements="19" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="config.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/test/config.js">
+        <metrics statements="19" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="test.models">
+      <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="setuptestdb.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/test/models/setuptestdb.js">
+        <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
@@ -40,7 +101,7 @@
         <line num="46" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="47" count="2" type="stmt"/>
         <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
         <line num="55" count="1" type="stmt"/>
       </file>
     </package>
