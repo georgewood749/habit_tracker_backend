@@ -70,7 +70,7 @@ async function editHabit (req, res) {
 
         })
         
-        res.status(200).json(user)
+        res.status(201).json(user)
     } catch (err) {
         console.error(err)
     }
@@ -84,7 +84,7 @@ async function deleteHabit(req, res){
         
         const deleted = habits.splice(index, 1)
         
-        res.status(200).json(user, deleted)
+        res.status(204).json(user, deleted)
     } catch (err) {
         console.error(err)
     }
