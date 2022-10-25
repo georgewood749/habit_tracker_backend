@@ -3,10 +3,14 @@ const router = express.Router();
 const habitsController = require('../controllers/habits')
 const jwt = require('jsonwebtoken')
 
-router.post('/', verifyToken, habitsController.create);
 router.get('/', habitsController.getAll);
-router.get('/:username',verifyToken, habitsController.show);
+router.post('/', verifyToken, habitsController.create);
 
+router.get('/:username', verifyToken, habitsController.show);
+router.get('/:username/habits', habitsController.getHabits)
+router.get('/:username/habits/:id', habitsController.getHabit)
+router.patch('/:username/habits/:id', habitsController.editHabit)
+router.delete('/:username/habits/:id', habitsController.deleteHabit)
 
 function verifyToken(req, res, next) {
     const token = req.headers['authorization'];
@@ -26,7 +30,5 @@ function verifyToken(req, res, next) {
         res.status(403).json({err: 'missing token'})
     }
 }
-
-
 
 module.exports = router;
