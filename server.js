@@ -9,8 +9,6 @@ server.use(express.json());
 let cors = require("cors")
 server.use(cors())
 
-// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.qdvvhyb.mongodb.net/?retryWrites=true&w=majority`)
-// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.a7xqgeo.mongodb.net/?retryWrites=true&w=majority`);
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.a7xqgeo.mongodb.net/auth-users`)
 
 const db = mongoose.connection
@@ -25,16 +23,5 @@ server.use('/auth', authRoutes);
 server.get('/', (req, res) => {
     res.send('Welcome to the DaBoiz Habit Tracker!')
 })
-
-
-// const bodyParser = require('body-parser')
-// server.use(bodyParser.json())
-
-// server.use(function (req, res, next) {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type, X-Requested-With, Origin');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-//     next();
-// });
 
 module.exports = { server, db }
