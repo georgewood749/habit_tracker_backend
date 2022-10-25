@@ -1,5 +1,5 @@
 const request = require("supertest");
-const { connect, clear, close } = require("./config");
+const { connect, clear, close } = require("../config");
 const { server } = require("../../server");
 const agent = request.agent(server);
 

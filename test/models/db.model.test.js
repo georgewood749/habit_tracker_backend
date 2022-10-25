@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { connect, clear, close } = require('../routes/config')
+const { connect, clear, close } = require('../config')
 const Habit = require("../../model/model");
 
 const userData = {
