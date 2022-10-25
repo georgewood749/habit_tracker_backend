@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { connectDB, dropDB, dropCollections } = require("./setuptestdb");
+const { connect, clear, close } = require('../routes/config')
 const Habit = require("../../model/model");
 
 const userData = {
@@ -14,15 +14,15 @@ const userData = {
 
 describe("Habit Model", () => {
   beforeAll(async () => {
-    await connectDB();
+    await connect();
+  });
+
+  beforeEach(async () => {
+    await clear();
   });
 
   afterAll(async () => {
-    await dropDB();
-  });
-
-  afterEach(async () => {
-    await dropCollections();
+    await close();
   });
 
   it("should create & save user succesfully", async () => {
