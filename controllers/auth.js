@@ -34,7 +34,7 @@ async function login (req, res) {
                         token: token
                     })
                 }
-                const token = jwt.sign(payload, process.env.SECRET, {expiresIn:600}, sendToken);
+                const token = jwt.sign(payload, process.env.SECRET, {expiresIn:3600}, sendToken);
                 console.log(token);
             } else {
                 throw new Error('User could not be authenticated')  
