@@ -49,13 +49,13 @@ async function getHabits(req, res){
 
 async function getHabit(req, res){
     try {
-        const index = req.params.id - 1
+        const index = req.params.id
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
 
         if(index >= 0 && index < user.habits.length){
             res.status(200).json(user.habits[index])
         } else {
-            res.status(404).err('Invalid id')
+            res.status(404).json('Invalid id')
         }
     } catch (err) {
         console.error(err)
@@ -90,6 +90,17 @@ async function deleteHabit(req, res){
     }
 }
 
+async function completed(req, res){
+    try {
+        const index = req.params.id;
+        const user = await Habit.updateOne({ username: req.params.username }, {
+            isCompleted: true,
+        })
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 module.exports = {
     getAll,
     show,
@@ -98,5 +109,6 @@ module.exports = {
     getHabits,
     getHabit,
     editHabit,
-    deleteHabit
+    deleteHabit,
+    completed
 }
