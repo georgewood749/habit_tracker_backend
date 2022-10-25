@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const { connectDB, dropDB, dropCollections } = require("./setuptestdb");
+const { connect, clear, close } = require('../config')
 const Habit = require("../../model/model");
 
 const userData = {
-  username: "testUser",
+  username: "testuser",
   password: "912345678",
   habits: [
     { id: 1, habit: "Eat", streak: 31, isCompleted: true },
@@ -14,15 +14,15 @@ const userData = {
 
 describe("Habit Model", () => {
   beforeAll(async () => {
-    await connectDB();
+    await connect();
+  });
+
+  beforeEach(async () => {
+    await clear();
   });
 
   afterAll(async () => {
-    await dropDB();
-  });
-
-  afterEach(async () => {
-    await dropCollections();
+    await close();
   });
 
   it("should create & save user succesfully", async () => {

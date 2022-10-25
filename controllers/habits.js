@@ -30,13 +30,13 @@ async function create (req, res) {
     }
 }
 
-async function destroy (req, res) {
-        try {
+// async function destroy (req, res) {
+//         try {
             
-        } catch (err) {
+//         } catch (err) {
             
-        }
-}
+//         }
+// }
 
 async function getHabits(req, res){
     try {
@@ -83,7 +83,8 @@ async function editHabit (req, res) {
 
         // })
         
-        // res.status(200).json(user)
+
+        res.status(201).json(user)
     } catch (err) {
         console.error(err)
     }
@@ -95,6 +96,7 @@ async function deleteHabit(req, res){
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
         // const habit = user.habits[index]
         
+
         const deleted = user.habits.splice(index, 1)
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
@@ -143,7 +145,7 @@ module.exports = {
     getAll,
     show,
     create,
-    destroy,
+    // destroy,
     getHabits,
     getHabit,
     editHabit,
