@@ -13,11 +13,7 @@ async function getAll (req, res) {
 //shows details about one user
 async function show (req, res) {
     try {
-        console.log("username", req.params.username)
-        
-        const user = await Habit.find({ username: req.params.username }) 
-        console.log(user);
-        //const habits = await Habit.find({_id : req.params.id});
+        const user = await Habit.find({ username: req.params.username })
         res.status(200).json(user)
     } catch (err) {
         res.status(404).json({err})
@@ -53,7 +49,14 @@ async function getHabits(req, res){
 
 async function getHabit(req, res){
     try {
+        const index = req.params.id - 1
+        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
 
+        if(index >= 0 && index < user.habits.length){
+            res.status(200).json(user.habits[index])
+        } else {
+            res.status(404).err('Invalid id')
+        }
     } catch (err) {
         console.error(err)
     }
@@ -62,7 +65,12 @@ async function getHabit(req, res){
 // Adding, removing and updating habits for a specific user
 async function editHabit (req, res) {
     try {
+        const index = req.params.id - 1
+        const user = await Habit.updateOne({ username: req.params.username }, {
+
+        })
         
+        res.status(200).json(user)
     } catch (err) {
         console.error(err)
     }
@@ -70,7 +78,13 @@ async function editHabit (req, res) {
 
 async function deleteHabit(req, res){
     try {
-
+        const index = req.params.id - 1
+        const user = await Habit.find({ username: req.params.username }).limit(1)
+        const habits = user[0].habits
+        
+        const deleted = habits.splice(index, 1)
+        
+        res.status(200).json(user, deleted)
     } catch (err) {
         console.error(err)
     }
