@@ -30,13 +30,13 @@ async function create (req, res) {
     }
 }
 
-async function destroy (req, res) {
-        try {
+// async function destroy (req, res) {
+//         try {
             
-        } catch (err) {
+//         } catch (err) {
             
-        }
-}
+//         }
+// }
 
 async function getHabits(req, res){
     try {
@@ -94,7 +94,7 @@ module.exports = {
     getAll,
     show,
     create,
-    destroy,
+    // destroy,
     getHabits,
     getHabit,
     editHabit,
