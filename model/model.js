@@ -16,7 +16,8 @@ const habitSchema = new mongoose.Schema({
         habit: String,
         frequency: String,
         streak: Number,
-        isCompleted: Boolean
+        isCompleted: Boolean,
+        timeofLastComplete: Number
     }]
 
 });
