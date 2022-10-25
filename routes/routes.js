@@ -8,9 +8,11 @@ router.post('/', verifyToken, habitsController.create);
 
 router.get('/:username', verifyToken, habitsController.show);
 router.get('/:username/habits', habitsController.getHabits)
-router.get('/:username/habits/:id', habitsController.getHabit)
-router.patch('/:username/habits/:id', habitsController.editHabit)
-router.delete('/:username/habits/:id', habitsController.deleteHabit)
+router.get('/:username/habits/:id', verifyToken, habitsController.getHabit)
+router.patch('/:username/habits', verifyToken, habitsController.editHabit)
+router.patch('/:username/habits/:id/completed', verifyToken, habitsController.completed)
+router.patch('/:username/habits/:id/frequency', verifyToken, habitsController.frequency)
+router.delete('/:username/habits/:id', verifyToken, habitsController.deleteHabit)
 
 function verifyToken(req, res, next) {
     const token = req.headers['authorization'];
