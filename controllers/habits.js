@@ -50,10 +50,31 @@ async function getHabits(req, res){
 async function getHabit(req, res){
     try {
         const index = req.params.id
+        // const day = 8.64e+7;
+        const day = 10000;
+        const week = 6.048e+8
+        const month = 2.628e+9
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        user.habits.forEach(() => {
+            if (user.habits[index].frequency == "Daily" && Date.now() - day > user.habits[index].timeofLastComplete) {
+                user.habits[index].streak = 0
+                user.habits[index].isCompleted = false
+            } else if (user.habits[index].frequency == "Weekly" && Date.now() - week > user.habits[index].timeofLastComplete) {
+                user.habits[index].streak = 0
+                user.habits[index].isCompleted = false
+            } else if (user.habits[index].frequency == "Monthly" && Date.now() - month > user.habits[index].timeofLastComplete) {
+                user.habits[index].streak = 0
+                user.habits[index].isCompleted = false
+            }
+        })
+        const newUser = await Habit.updateOne({ username: req.params.username }, {$set :{
+            habits: user.habits
+        }})
+        const updatedUser = (await Habit.find({ username: req.params.username }).limit(1))[0]
 
-        if(index >= 0 && index < user.habits.length){
-            res.status(200).json(user.habits[index])
+
+        if(index >= 0 && index < updatedUser.habits.length){
+            res.status(200).json(updatedUser.habits[index])
         } else {
             res.status(404).json('Invalid id')
         }
@@ -70,11 +91,12 @@ async function editHabit (req, res) {
             habit: req.body.habit,
             frequency: req.body.frequency,
             streak: 0,
-            isCompleted: false
+            isCompleted: false,
+            timeofLastComplete: Date.now()
         }
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
         user.habits.push(newHabit)
-        console.log(user);
+        console.log("created user",user);
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
         }})
@@ -114,6 +136,7 @@ async function completed(req, res){
         console.log(user);
         user.habits[index].isCompleted = true;
         user.habits[index].streak++;
+        user.habits[index].timeofLastComplete = Date.now();
         console.log(user.habits);
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
