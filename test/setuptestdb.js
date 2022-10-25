@@ -1,7 +1,28 @@
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
 
-let mongo = null;
+const mongoServer = new MongoMemoryServer();
+
+// let mongo = null;
+
+// exports.dbConnect = async () => {
+//   const uri = await mongoServer.getUri();
+
+//   const mongooseOpts = {
+//     useNewUrlParser: true,
+//     useCreateIndex: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false,
+//   };
+
+//   await mongoose.connect(uri, mongooseOpts);
+// };
+
+// exports.dbDisconnect = async () => {
+//   await mongoose.connection.dropDatabase();
+//   await mongoose.connection.close();
+//   await mongoServer.stop();
+// };
 
 const connectDB = async () => {
   mongo = await MongoMemoryServer.create();
@@ -30,4 +51,5 @@ const dropCollections = async () => {
   }
 };
 
-module.exports = { connectDB, dropDB, dropCollections}
+
+module.exports = { connectDB, dropDB, dropCollections }
