@@ -3,7 +3,7 @@ const { connect, clear, close } = require('../config')
 const Habit = require("../../model/model");
 
 const userData = {
-  username: "testUser",
+  username: "testuser",
   password: "912345678",
   habits: [
     { id: 1, habit: "Eat", streak: 31, isCompleted: true },
