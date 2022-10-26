@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666717198753" clover="3.2.0">
-  <project timestamp="1666717198753" name="All files">
-    <metrics statements="182" coveredstatements="73" conditionals="28" coveredconditionals="1" methods="23" coveredmethods="7" elements="233" coveredelements="81" complexity="0" loc="182" ncloc="182" packages="5" files="7" classes="7"/>
+<coverage generated="1666804024409" clover="3.2.0">
+  <project timestamp="1666804024409" name="All files">
+    <metrics statements="192" coveredstatements="89" conditionals="28" coveredconditionals="2" methods="26" coveredmethods="12" elements="246" coveredelements="103" complexity="0" loc="192" ncloc="192" packages="5" files="7" classes="7"/>
     <package name="habit_tracker_backend">
       <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="server.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/server.js">
@@ -28,12 +28,12 @@
       </file>
     </package>
     <package name="habit_tracker_backend.controllers">
-      <metrics statements="103" coveredstatements="6" conditionals="22" coveredconditionals="0" methods="13" coveredmethods="0"/>
+      <metrics statements="103" coveredstatements="9" conditionals="22" coveredconditionals="0" methods="13" coveredmethods="1"/>
       <file name="auth.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/controllers/auth.js">
         <metrics statements="28" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -58,14 +58,14 @@
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
       </file>
       <file name="habits.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/controllers/habits.js">
-        <metrics statements="75" coveredstatements="2" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <metrics statements="75" coveredstatements="5" conditionals="16" coveredconditionals="0" methods="10" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
@@ -140,28 +140,38 @@
       </file>
     </package>
     <package name="habit_tracker_backend.model">
-      <metrics statements="15" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="25" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
       <file name="model.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/model/model.js">
-        <metrics statements="15" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
+        <metrics statements="25" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="27" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
+        <line num="39" count="5" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
-        <line num="48" count="4" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="50" count="5" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="64" count="5" type="stmt"/>
+        <line num="66" count="5" type="stmt"/>
       </file>
     </package>
     <package name="habit_tracker_backend.routes">
-      <metrics statements="29" coveredstatements="20" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="29" coveredstatements="24" conditionals="4" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="auth.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/routes/auth.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
@@ -172,7 +182,7 @@
         <line num="11" count="3" type="stmt"/>
       </file>
       <file name="routes.js" path="/Users/wood/Documents/Futureproof/2-Lap2/3-Project/habit_tracker_backend/routes/routes.js">
-        <metrics statements="23" coveredstatements="14" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="18" conditionals="4" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -186,15 +196,15 @@
         <line num="13" count="3" type="stmt"/>
         <line num="14" count="3" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="25" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
         <line num="36" count="3" type="stmt"/>
       </file>
     </package>
@@ -213,7 +223,7 @@
         <line num="26" count="3" type="cond" truecount="1" falsecount="1"/>
         <line num="27" count="0" type="stmt"/>
         <line num="33" count="3" type="stmt"/>
-        <line num="40" count="10" type="stmt"/>
+        <line num="40" count="9" type="stmt"/>
         <line num="43" count="3" type="stmt"/>
         <line num="44" count="3" type="stmt"/>
         <line num="45" count="3" type="stmt"/>
