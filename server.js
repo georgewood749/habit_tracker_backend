@@ -24,5 +24,5 @@ server.get('/', (req, res) => {
     res.send('Welcome to the DaBoiz Habit Tracker!')
 })
 
-module.exports = server
+module.exports = { server, db }
 // module.exports = db

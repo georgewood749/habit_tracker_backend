@@ -39,3 +39,7 @@ describe("habits endpoints", () => {
   // }, 10000);
 });
 
+describe("authentication tests", () => {
+  
+})
+
