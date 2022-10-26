@@ -1,5 +1,10 @@
 const Habit = require('../model/model');
 
+// const day = 8.64e+7;
+const day = 10000;
+const week = 6.048e+8
+const month = 2.628e+9
+
 //shows all users
 async function getAll (req, res) {
     try {
@@ -51,20 +56,32 @@ async function getHabit(req, res){
     try {
         const index = req.params.id
         // const day = 8.64e+7;
-        const day = 10000;
-        const week = 6.048e+8
-        const month = 2.628e+9
+        // const day = 10000;
+        // const week = 6.048e+8
+        // const month = 2.628e+9
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
-        user.habits.forEach(() => {
-            if (user.habits[index].frequency == "Daily" && Date.now() - day > user.habits[index].timeofLastComplete) {
-                user.habits[index].streak = 0
+        user.habits.forEach(habit => {
+            if (user.habits[index].frequency == "Daily" && Date.now() > user.habits[index].timeofLastComplete) {
+                if(user.habits[index].isCompleted == false){
+                    user.habits[index].streak = 0
+                }
+                    
                 user.habits[index].isCompleted = false
+                user.habits[index].timeofLastComplete += day
             } else if (user.habits[index].frequency == "Weekly" && Date.now() - week > user.habits[index].timeofLastComplete) {
-                user.habits[index].streak = 0
+                if(user.habits[index].isCompleted == false){
+                    user.habits[index].streak = 0
+                }
+                    
                 user.habits[index].isCompleted = false
+                user.habits[index].timeofLastComplete += week
             } else if (user.habits[index].frequency == "Monthly" && Date.now() - month > user.habits[index].timeofLastComplete) {
-                user.habits[index].streak = 0
+                if(user.habits[index].isCompleted == false){
+                    user.habits[index].streak = 0
+                }
+                    
                 user.habits[index].isCompleted = false
+                user.habits[index].timeofLastComplete += month
             }
         })
         const newUser = await Habit.updateOne({ username: req.params.username }, {$set :{
@@ -86,13 +103,27 @@ async function getHabit(req, res){
 // Adding, removing and updating habits for a specific user
 async function editHabit (req, res) {
     try {
+        let timeAdded = 0
+
+        switch(req.body.frequency){
+            case "Daily":
+                timeAdded = day;
+                break;
+            case "Weekly":
+                timeAdded = week;
+                break;
+            case "Monthly":
+                timeAdded = month;
+                break;
+        }
+
         // const index = req.params.id
         const newHabit = {
             habit: req.body.habit,
             frequency: req.body.frequency,
             streak: 0,
             isCompleted: false,
-            timeofLastComplete: Date.now()
+            timeofLastComplete: Date.now() + timeAdded
         }
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
         user.habits.push(newHabit)
@@ -131,12 +162,30 @@ async function deleteHabit(req, res){
 
 async function completed(req, res){
     try {
+        let timeAdded = 0
+
+        switch(req.body.frequency){
+            case "Daily":
+                timeAdded = day;
+                break;
+            case "Weekly":
+                timeAdded = week;
+                break;
+            case "Monthly":
+                timeAdded = month;
+                break;
+        }
+
         const index = req.params.id;
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
         console.log(user);
-        user.habits[index].isCompleted = true;
-        user.habits[index].streak++;
-        user.habits[index].timeofLastComplete = Date.now();
+
+        if(!user.habits[index].isCompleted){
+            user.habits[index].isCompleted = true;
+            user.habits[index].streak++;
+            user.habits[index].timeofLastComplete = Date.now() + timeAdded - ((Date.now() - user.habits[index].timeofLastComplete) % timeAdded);
+        }
+
         console.log(user.habits);
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
