@@ -68,14 +68,14 @@ async function getHabit(req, res){
                     
                 user.habits[index].isCompleted = false
                 user.habits[index].timeofLastComplete += day
-            } else if (user.habits[index].frequency == "Weekly" && Date.now() - week > user.habits[index].timeofLastComplete) {
+            } else if (user.habits[index].frequency == "Weekly" && Date.now() > user.habits[index].timeofLastComplete) {
                 if(user.habits[index].isCompleted == false){
                     user.habits[index].streak = 0
                 }
                     
                 user.habits[index].isCompleted = false
                 user.habits[index].timeofLastComplete += week
-            } else if (user.habits[index].frequency == "Monthly" && Date.now() - month > user.habits[index].timeofLastComplete) {
+            } else if (user.habits[index].frequency == "Monthly" && Date.now() > user.habits[index].timeofLastComplete) {
                 if(user.habits[index].isCompleted == false){
                     user.habits[index].streak = 0
                 }
