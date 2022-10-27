@@ -17,8 +17,6 @@ app.use("/", server);
 test("index route works", done => {
     request(app)
         .get("/")
-        // .expect("Content-Type", /json/)
-        // .expect({ name: "frodo" })
         .expect(200, done);
 });
 
@@ -45,6 +43,11 @@ test('should create a new user on the database', done => {
     request(app).post('/users')
         .expect(201, done);
 });
+
+
+it('responds to invalid username with 404', done => {
+    request(app).get('/users/invalidUsername').expect(404, done)
+})
 
 // it('should create a new user on the database', async () => {
 //     const res = await request(app).post('/');
@@ -81,9 +84,6 @@ test('should create a new user on the database', done => {
 
 //     });
 
-//         it('responds to invalid username with 404', (done) => {
-//         request(api).get('/users/invalidUsername').expect(404, done)
-//     })
 // })
 
 
