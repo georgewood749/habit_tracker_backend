@@ -200,10 +200,26 @@ async function completed(req, res){
 
 async function frequency(req, res){
     try {
+        let timeAdded = 0
+
+        switch(req.body.frequency){
+            case "Daily":
+                timeAdded = day;
+                break;
+            case "Weekly":
+                timeAdded = week;
+                break;
+            case "Monthly":
+                timeAdded = month;
+                break;
+        }
         const index = req.params.id;
         const frequency = req.body.frequency
         const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
         user.habits[index].frequency = frequency
+        user.habits[index].streak = 0
+        user.habits[index].isCompleted = false
+        user.habits[index].timeofLastComplete = Date.now() + timeAdded
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
     }})
