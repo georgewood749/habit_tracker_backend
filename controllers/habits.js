@@ -59,7 +59,8 @@ async function getHabit(req, res){
         // const day = 10000;
         // const week = 6.048e+8
         // const month = 2.628e+9
-        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const user = (await Habit.find({ username: req.params.username }))[0]
+        console.log(user);
         user.habits.forEach(habit => {
             if (user.habits[index].frequency == "Daily" && Date.now() > user.habits[index].timeofLastComplete) {
                 if(user.habits[index].isCompleted == false){
@@ -87,7 +88,7 @@ async function getHabit(req, res){
         const newUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
         }})
-        const updatedUser = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const updatedUser = (await Habit.find({ username: req.params.username }))[0]
 
 
         if(index >= 0 && index < updatedUser.habits.length){
@@ -125,7 +126,7 @@ async function editHabit (req, res) {
             isCompleted: false,
             timeofLastComplete: Date.now() + timeAdded
         }
-        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const user = (await Habit.find({ username: req.params.username }))[0]
         user.habits.push(newHabit)
         console.log("created user",user);
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
@@ -137,7 +138,7 @@ async function editHabit (req, res) {
         // })
         
 
-        res.status(201).json(user)
+        // res.status(201).json(user)
     } catch (err) {
         console.error(err)
     }
@@ -146,7 +147,7 @@ async function editHabit (req, res) {
 async function deleteHabit(req, res){
     try {
         const index = req.params.id
-        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const user = (await Habit.find({ username: req.params.username }))[0]
         // const habit = user.habits[index]
         
 
@@ -177,7 +178,7 @@ async function completed(req, res){
         }
 
         const index = req.params.id;
-        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const user = (await Habit.find({ username: req.params.username }))[0]
         console.log(user);
 
         if(!user.habits[index].isCompleted){
@@ -200,10 +201,26 @@ async function completed(req, res){
 
 async function frequency(req, res){
     try {
+        let timeAdded = 0
+
+        switch(req.body.frequency){
+            case "Daily":
+                timeAdded = day;
+                break;
+            case "Weekly":
+                timeAdded = week;
+                break;
+            case "Monthly":
+                timeAdded = month;
+                break;
+        }
         const index = req.params.id;
         const frequency = req.body.frequency
-        const user = (await Habit.find({ username: req.params.username }).limit(1))[0]
+        const user = (await Habit.find({ username: req.params.username }))[0]
         user.habits[index].frequency = frequency
+        user.habits[index].streak = 0
+        user.habits[index].isCompleted = false
+        user.habits[index].timeofLastComplete = Date.now() + timeAdded
         const updatedUser = await Habit.updateOne({ username: req.params.username }, {$set :{
             habits: user.habits
     }})

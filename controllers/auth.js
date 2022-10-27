@@ -25,10 +25,15 @@ async function login (req, res) {
             const user = await Habit.find({ username: req.body.username })   
             if(!user){ throw new Error('No user with this name') }
             const authed = bcrypt.compare(req.body.password, user[0].password)
+            console.log(authed);
             if (!!authed){
+                console.log("is authed");
                 const payload = {username: user[0].username }
                 const sendToken = ( err, token ) => {
-                    if (err) { throw new Error('Error in token generation')}
+                    if (err) { 
+                        console.log("Fails here");
+                        throw new Error('Error in token generation')
+                    }
                     res.status(200).json({
                         success: true,
                         token: token
